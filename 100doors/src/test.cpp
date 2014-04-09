@@ -52,9 +52,10 @@ BOOST_AUTO_TEST_CASE(FINAL_TEST)
     {
         row.changeDoorsWithIndexMultipleOf(i);
     }
+    std::array<int, 10> openedIndexes = {1, 4, 9, 16, 25, 36, 49, 64, 81, 100};
     for (int i = 1; i < 101; ++i)
     {
-        if(row.isDoorOpen(i))
-            std::cout << "Door "<<i<<" is open" << std::endl;
+        bool shouldBeOpened = std::find(openedIndexes.begin(), openedIndexes.end(), i) != openedIndexes.end();
+        BOOST_CHECK(row.isDoorOpen(i) == shouldBeOpened);
     }
 }
