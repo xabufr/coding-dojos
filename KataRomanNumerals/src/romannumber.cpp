@@ -6,10 +6,11 @@
 RomanNumber::RomanNumber(int number)
 {
     assert(number > 0 && number <= 3999);
-    m_digits.push_back(std::tuple<std::string, std::string, std::string>("I", "V", "X"));
-    m_digits.push_back(std::tuple<std::string, std::string, std::string>("X", "L", "C"));
-    m_digits.push_back(std::tuple<std::string, std::string, std::string>("C", "D", "M"));
-    m_digits.push_back(std::tuple<std::string, std::string, std::string>("M", "-", "-"));
+    m_digits = {std::make_tuple("I", "V", "X"),
+                std::make_tuple("X", "L", "C"),
+                std::make_tuple("C", "D", "M"),
+                std::make_tuple("M", "-", "-")
+               };
 
     for (int i = 3; i >= 0; --i)
     {
